@@ -1,5 +1,7 @@
-## Run Your Project
+(because of personal issues i was unable to complete this before the due date.
+that is all i could complete in the short time available)
 
+## Run The Project
 
 1. **VSCode Live Reloading(Recommended)**
     * Install the "Live Server" extension by Ritwick Dey.
