@@ -27,6 +27,7 @@
     --blue: #182cc0;
     --l-blue: #3295ce;
     --ll: #eef1f1;
+    --lll: #f9fafa;
 }
 
 *{
@@ -58,6 +59,11 @@ body {
     background-color: white;
     padding: 0 47px;
     border-bottom: 1px solid #eef1f1;
+    transition: all .25s;
+}
+
+.header.active {
+    background-color: var(--lll);
 }
 
 .header-container {
@@ -299,6 +305,153 @@ body {
     color: var(--blue);
 }
 
+.header-overlay{
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .6s;
+    background-color: white;
+    display: none;
+    overflow: scroll;
+}
+
+.header-overlay.active{
+    pointer-events: all;
+    opacity: 1;
+}
+
+.header-mobile-dropdown{
+    border-bottom: 1px solid #d1d5d6;
+    margin-left: 0;
+    margin-right: 0;
+    padding:  0 45px 32px 45px;
+}
+
+.header-mobile-dropdown-toggle{
+    width: 100%;
+    max-width: 1110px;
+    color: var(--bllue-black);
+    justify-content: space-between;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 32px 0 0;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+}
+
+.header-mobile-dropdown-list{
+    width: 100%;
+    max-width: 1110px;
+    grid-row-gap: 16px;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    overflow: hidden;
+    height: 0;
+    transition: all 1s;
+}
+
+.header-mobile-dropdown.active .header-mobile-dropdown-list{
+    padding-top: 20px;
+    height: 134px;
+}
+
+.header-mobile-dropdown-link{
+    cursor: pointer;
+    padding-right: 47px;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: none;
+    transition: color .25s ease-in-out;
+    color: var(--grey);
+}
+
+.header-mobile-dropdown-link:hover{
+    color: var(--blue);
+}
+
+.pointer{
+    transition: all .6s;
+}
+
+.header-mobile-dropdown.active .pointer {
+    transform: rotate(180deg);
+}
+
+.header-menu-mobile-contacts{
+    padding: 32px 45px;
+}
+
+.header-menu-mobile-contacts .h{
+    color: var(--bllue-black);
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.footer_contact-list{
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    gap: 32px;
+    font-style: normal;
+    display: flex;
+}
+
+.footer_contact-list > a{
+    text-decoration: none;
+    color: var(--grey);
+}
+
+.header-menu-mobile-contacts .social{
+    display: flex;
+    gap: 15px;
+}
+
+.header-menu-mobile-contacts .social > div {
+    width: 40px;
+    height: 40px;
+    background-color: var(--lll);
+    border-radius: 6px;
+    justify-content: center;
+    align-items: center;
+    transition: background-color .25s ease-in-out, color .25s ease-in-out;
+    display: flex;
+    color: var(--grey);
+}
+
+.header-menu-mobile-contacts .social > div:hover{
+    color: var(--blue);
+    background-color: #eee;
+}
+
+.header-menu-mobile-bottom{
+    padding: 28px 45px;
+    color: var(--grey);
+    border-top: 1px solid #eef1f1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottom-icon-wrap{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.bottom-links{
+    display: flex;
+    gap: 35px;
+}
+
 /*footer*/
 .footer-container {
     background-color: green;
@@ -319,6 +472,7 @@ body {
         font-size: 14px;
     }
 }
+
 @media screen and (max-width: 990px) {
     .header {
         padding: 0 45px;
@@ -340,6 +494,10 @@ body {
         display: flex;
     }
 
+    .header-overlay{
+        display: block;
+    }
+
 }
 
 @media screen and (max-width: 767px){
@@ -350,10 +508,34 @@ body {
     .header-logo.small{
         display: flex;
     }
+    .header-menu-mobile-bottom{
+        flex-direction: column;
+    }
+
+    .header-menu-mobile-bottom{
+        font-size: 12px;
+    }
 }
 
 @media screen and (max-width: 479px) {
     .header {
         padding: 0 15px;
+    }
+    .header-mobile-dropdown{
+        padding:  0 15px 32px 15px;
+    }
+
+    .header-menu-mobile-contacts .h{
+        font-size: 16px;
+    }
+
+    .header-mobile-dropdown{
+        padding:  0 15px 32px 15px;
+    }
+    .header-menu-mobile-bottom{
+        padding: 28px 15px;
+    }
+    .header-menu-mobile-contacts{
+        padding: 32px 15px;
     }
 }

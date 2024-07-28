@@ -1,6 +1,16 @@
 import {arrowLink} from "./arrow-link.js";
-import {globeIcon, searchIcon, tbcIcon, tbcIconSmall} from "../assets/svg/icons.js";
+import {
+  fbIcon,
+  globeIcon, instaIcon,
+  locationIcon,
+  mailIcon,
+  phoneIcon,
+  searchIcon,
+  tbcIcon,
+  tbcIconSmall, tbcIconSmaller
+} from "../assets/svg/icons.js";
 import {menu_buttons_data} from "../data/header-data.js";
+import {headerMobileDropdown} from "./header-mobile-dropdown.js";
 
 export function createHeader() {
   const arrow_props = {
@@ -25,6 +35,11 @@ export function createHeader() {
       </div>
     `;
   }).join('');
+
+
+  const header_menu_mobile = menu_buttons_data.map( b => {
+    return headerMobileDropdown(b)
+  }).join('')
 
   return `<div class="header-placeholder">
     <div class="header">
@@ -68,6 +83,33 @@ export function createHeader() {
                 <img src="https://static.tbcconcept.ge/desktop/media/uz0y3tkf.idxFixed%20aspect%20ratio%20block%20[Utility].png" alt="">
             </a>
             ${arrowLink({title: 'ციფრული ბანკი', href: 'https://tbconline.ge/tbcrd/login?t=false'})}
+        </div>
+        
+        <div class="header-overlay">
+            ${header_menu_mobile}
+            <div class="header-menu-mobile-contacts">
+                <p class="h">დაგვიკავშირდით:</p>
+                <div class="footer_contact-list">
+                    <a href="#">${phoneIcon()} +995 32 2 27 27 00</a>
+                    <a href="#">${mailIcon()} info@tbcconcept.ge</a>
+                    <a href="#">${locationIcon()} ფილიალები</a>
+                </div>
+                <p class="h">სოციალური ქსელები:</p>
+                <div class="social">
+                    <div>${fbIcon()}</div>
+                    <div>${instaIcon()}</div>
+                </div>
+            </div>
+            <div class="header-menu-mobile-bottom">
+                <div class="bottom-icon-wrap">
+                    <div style="width: 20px">${tbcIconSmaller()}</div>
+                    <p>2024 ყველა უფლება დაცულია</p>
+                </div>
+                <div class="bottom-links">
+                    <p>კონფიდენციალურობა</p>
+                    <p>წესები და პირობები</p>
+                </div>
+            </div>
         </div>
     </div>  
 </div>`
