@@ -1,9 +1,12 @@
 import {createHeader} from "./components/header.js";
 import {createFooter} from "./components/footer.js";
+import {Main} from "./main.js";
 
 
 document.getElementById('header').innerHTML = createHeader()
 document.getElementById('footer').innerHTML = createFooter()
+document.getElementById('main').innerHTML = Main()
+
 
 
 //hamburger button click event in header section
